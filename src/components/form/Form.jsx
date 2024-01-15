@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Btn, Input, SimpleForm } from './form.style';
 import { useNavigate } from 'react-router-dom';
+
+import { Btn, Input, SimpleForm } from './form.style';
 
 export const Form = ({ setQuery }) => {
   const [inputValue, setInputValue] = useState('');

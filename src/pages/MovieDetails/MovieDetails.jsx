@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
-import { movieDetails } from 'api/api'; 
 
+import { movieDetails } from 'api/api'; 
 import s from './MovieDetails.module.css';
 
 
@@ -53,7 +53,7 @@ export const MovieDetails = () => {
               </li>
             </ul>
           </div>
-          
+
           <Suspense fallback={<div>Loading...</div>}>
             <Outlet />
           </Suspense>

@@ -1,6 +1,7 @@
-import { movieReviews } from 'api/api';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+
+import { movieReviews } from 'api/api';
 
 export const Reviews = () => {
   const [data, setData] = useState([]);

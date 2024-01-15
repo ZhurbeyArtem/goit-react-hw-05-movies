@@ -1,6 +1,7 @@
-import { movieActors } from 'api/api';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { movieActors } from 'api/api';
 
 export const Cast = () => {
   const [data, setData] = useState([]);

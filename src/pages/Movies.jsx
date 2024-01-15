@@ -1,9 +1,9 @@
 import { search } from 'api/api';
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import { Form } from '../components/form/Form';
 import { List, ListItem } from 'components/LIst';
-import { Link, useLocation } from 'react-router-dom';
 
 export const Movies = () => {
   const location = useLocation();
