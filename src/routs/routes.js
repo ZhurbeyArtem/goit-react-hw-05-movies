@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 
 import { Home } from 'pages/Home';
 import { Movies } from 'pages/Movies';
@@ -7,38 +7,33 @@ import { Cast } from 'components/Cast';
 import { Reviews } from 'components/Reviews';
 import { Navbar } from 'components/navbar/Navbar';
 
-export const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      element: <Navbar />,
-      children: [
-        {
-          path: '/',
-          element: <Home />,
-        },
-        {
-          path: '/movies',
-          element: <Movies />,
-        },
-        {
-          path: '/movies/:movieId',
-          element: <MovieDetails />,
-          children: [
-            {
-              path: 'cast',
-              element: <Cast />,
-            },
-            {
-              path: 'reviews',
-              element: <Reviews />,
-            },
-          ],
-        },
-      ],
-    },
-  ],
+export const router = createHashRouter([
   {
-    basename: '/',
-  }
-);
+    path: '/',
+    element: <Navbar />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/movies',
+        element: <Movies />,
+      },
+      {
+        path: '/movies/:movieId',
+        element: <MovieDetails />,
+        children: [
+          {
+            path: 'cast',
+            element: <Cast />,
+          },
+          {
+            path: 'reviews',
+            element: <Reviews />,
+          },
+        ],
+      },
+    ],
+  },
+]);
