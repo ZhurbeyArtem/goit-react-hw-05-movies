@@ -1,0 +1,22 @@
+.back{
+  display: block;
+  padding: 5px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin: 5px 0;
+  width: 60px;
+}
+.main{
+
+  display: flex;
+  gap: 20px;
+}
+.underline{
+    padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+.image{
+  width: 250px;
+  height: 400px;
+  object-fit: fill;
+}
