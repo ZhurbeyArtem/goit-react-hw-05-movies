@@ -10,7 +10,6 @@ export const Cast = () => {
     const fetchData = async () => {
       try {
         const { cast } = await movieActors(id);
-        console.log(cast);
         setData(cast);
       } catch (e) {
         console.log(e);
