@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import { trends } from 'api/api';
 import { MoviesList } from 'components/list/MoviesList';
-import { useLocation } from 'react-router-dom';
 
 export const Home = () => {
   const [data, setData] = useState([]);
@@ -14,12 +13,10 @@ export const Home = () => {
     fetchDate();
   }, []);
 
-    const { pathname } = useLocation();
-
   return (
     <div>
       <h2>Trending today</h2>
-      <MoviesList data={data} pathname={pathname} />
+      {data.length > 0 ? <MoviesList data={data} /> : <p>no data</p>}
     </div>
   );
 };

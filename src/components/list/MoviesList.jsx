@@ -1,14 +1,17 @@
 import React from 'react'
-import { List, ListItem } from './LIst';
-import { Link } from 'react-router-dom';
+import { List, ListItem } from './LIst.style';
+import { Link, useLocation } from 'react-router-dom';
 
-export const MoviesList = ({ data, pathname }) => {
+export const MoviesList = ({ data }) => {
+  const location = useLocation()
   return (
     <List>
-      {data &&
+      {
         data.map(e => (
           <ListItem key={e.id}>
-            <Link to={`/movies/${e.id}`} state={{from: pathname}}>{e.title}</Link>
+            <Link to={`/movies/${e.id}`} state={{ from: location }}>
+              {e.title}
+            </Link>
           </ListItem>
         ))}
     </List>

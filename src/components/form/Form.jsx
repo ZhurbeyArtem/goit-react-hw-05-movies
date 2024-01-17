@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { Btn, Input, SimpleForm } from './form.style';
+import { Btn, Input, SimpleForm } from './Form.style.js';
 
-export const Form = ({ setQuery }) => {
+export const Form = ({ updateQueryString }) => {
   const [inputValue, setInputValue] = useState('');
 
   const [, setSearchParams] = useSearchParams();
 
   const handleFormSubmit = async e => {
     e.preventDefault();
-    setQuery(inputValue);
-    setSearchParams({query: inputValue});
+    updateQueryString(inputValue);
+    setSearchParams({ query: inputValue });
   };
   return (
     <SimpleForm onSubmit={handleFormSubmit}>
