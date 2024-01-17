@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import { Btn, Input, SimpleForm } from './form.style';
 
 export const Form = ({ setQuery }) => {
   const [inputValue, setInputValue] = useState('');
-  const navigate = useNavigate();
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleFormSubmit = async e => {
     e.preventDefault();
     setQuery(inputValue);
-    navigate(`/movies?query=${encodeURIComponent(inputValue)}`);
+    setSearchParams({query: inputValue});
   };
   return (
     <SimpleForm onSubmit={handleFormSubmit}>

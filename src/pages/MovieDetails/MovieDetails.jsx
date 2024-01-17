@@ -1,14 +1,15 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
-import { movieDetails } from 'api/api'; 
+import { movieDetails } from 'api/api';
 import s from './MovieDetails.module.css';
-
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-
+  const location = useLocation()
+  const backLinkHref = location.state.from ?? '/';
+  console.log(backLinkHref);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,12 +25,16 @@ export const MovieDetails = () => {
     <>
       {movie && (
         <>
-          <Link to="/" className={s.back}>
+          <Link to={backLinkHref} className={s.back}>
             Go back
           </Link>
           <div className={`${s.main} ${s.underline}`}>
             <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  : 'https://images.prom.ua/4897349446_w500_h640_4897349446.jpg'
+              }
               alt={movie.title}
               className={s.image}
             />

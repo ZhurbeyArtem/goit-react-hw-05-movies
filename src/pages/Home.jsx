@@ -1,32 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { trends } from 'api/api';
-import { List, ListItem } from 'components/LIst';
+import { MoviesList } from 'components/list/MoviesList';
+import { useLocation } from 'react-router-dom';
 
 export const Home = () => {
-
   const [data, setData] = useState([]);
-  
   useEffect(() => {
     const fetchDate = async () => {
       const trendFilms = await trends();
       setData(trendFilms);
-    }
-    fetchDate()
-  }, [])
+    };
+    fetchDate();
+  }, []);
+
+    const { pathname } = useLocation();
 
   return (
     <div>
       <h2>Trending today</h2>
-      <List>
-        {data &&
-          data.map(e => (
-            <ListItem key={e.id}>
-              <Link to={`movies/${e.id}`}>{e.title}</Link>
-            </ListItem>
-          ))}
-      </List>
+      <MoviesList data={data} pathname={pathname} />
     </div>
   );
 };

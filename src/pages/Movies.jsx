@@ -1,15 +1,15 @@
 import { search } from 'api/api';
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { Form } from '../components/form/Form';
-import { List, ListItem } from 'components/LIst';
+
+import { MoviesList } from 'components/list/MoviesList';
 
 export const Movies = () => {
   const location = useLocation();
   const [query, setQuery] = useState(location.search.split('=')[1]);
   const [data, setData] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const trendFilms = await search(query);
@@ -23,13 +23,10 @@ export const Movies = () => {
       <Form setQuery={setQuery} />
 
       {data ? (
-        <List>
-          {data.map(e => (
-            <ListItem key={e.id}>
-              <Link to={`/movies/${e.id}`}>{e.title}</Link>
-            </ListItem>
-          ))}
-        </List>
+        <MoviesList
+          data={data}
+          pathname={location.pathname + location.search}
+        />
       ) : (
         <p>no data</p>
       )}

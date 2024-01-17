@@ -20,12 +20,16 @@ export const Cast = () => {
 
   return (
     <div>
-      {data ? (
+      {data.length > 0 ? (
         <ul>
           {data.map(actor => (
             <li key={actor.id}>
               <img
-                src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
+                src={
+                  actor.profile_path
+                    ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
+                    : 'https://images.prom.ua/4897349446_w200_h640_4897349446.jpg'
+                }
                 alt={actor.name}
               />
               <p>{actor.name}</p>
