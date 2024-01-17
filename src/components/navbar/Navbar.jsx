@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { NavbarMain, NLink } from './Navbar.style.js';
+import { NavbarMain, NLink } from './navbar.style.js';
 
 export const Navbar = () => {
   return (

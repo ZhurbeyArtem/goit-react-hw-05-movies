@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { Btn, Input, SimpleForm } from './Form.style.js';
+import { Btn, Input, SimpleForm } from './form.style.js';
 
 export const Form = ({ updateQueryString }) => {
   const [inputValue, setInputValue] = useState('');
