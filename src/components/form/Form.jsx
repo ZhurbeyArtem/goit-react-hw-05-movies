@@ -6,7 +6,7 @@ import { Btn, Input, SimpleForm } from './form.style';
 export const Form = ({ setQuery }) => {
   const [inputValue, setInputValue] = useState('');
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   const handleFormSubmit = async e => {
     e.preventDefault();

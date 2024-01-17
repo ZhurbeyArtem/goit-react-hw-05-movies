@@ -10,6 +10,7 @@ export const Movies = () => {
   const location = useLocation();
   const [query, setQuery] = useState(location.search.split('=')[1]);
   const [data, setData] = useState([]);
+  
   useEffect(() => {
     const fetchData = async () => {
       const trendFilms = await search(query);
