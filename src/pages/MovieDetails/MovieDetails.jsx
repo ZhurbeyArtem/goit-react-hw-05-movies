@@ -8,10 +8,8 @@ export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation()
-  console.log(location);
 
   const backLinkHref = location.state?.from ?? '/';
-  console.log(backLinkHref);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,7 +23,7 @@ export const MovieDetails = () => {
   }, [movieId]);
   return (
     <>
-      {movie && (
+      {movie ? (
         <>
           <Link to={backLinkHref} className={s.back}>
             Go back
@@ -65,7 +63,9 @@ export const MovieDetails = () => {
             <Outlet />
           </Suspense>
         </>
-      )}
+      )
+      : <p>no data</p>
+       }
     </>
   );
 };
